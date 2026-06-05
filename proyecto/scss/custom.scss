@@ -1,0 +1,8 @@
+// 1. Cargamos tus variables personalizadas
+@use "variables" as *;
+
+// 2. Cargamos Bootstrap (Subirá un nivel y buscará en la carpeta bootstrap/scss)
+@use "../bootstrap/scss/bootstrap" as *; 
+
+// 3. Cargamos tus estilos interactivos extras
+@use "custom-styles" as *;

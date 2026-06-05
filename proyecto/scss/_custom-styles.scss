@@ -1,0 +1,31 @@
+// Efecto Hover interactivo en el Menú de Navegación
+.navbar-nav .nav-link {
+    transition: color 0.3s ease, transform 0.2s ease;
+    
+    &:hover {
+        color: $primary !important; // Cambia a naranja al pasar el ratón
+        transform: translateY(-2px); // Pequeño salto hacia arriba
+    }
+}
+
+// Ventanas de Alerta (Alerts) hiper-personalizadas
+.alert-custom {
+    background-color: lighten($card-dark, 5%);
+    border-left: 5px solid $primary;
+    color: #ffffff;
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+// Listón de favoritos (Ficha.html) mudado de línea a SASS
+.badge-favorito {
+    position: absolute;
+    top: 0;
+    right: 40px;
+    background-color: #ff5b66;
+    color: white;
+    padding: 15px 12px 25px 12px;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 85%, 0 100%);
+    font-size: 20px;
+    z-index: 10;
+}
