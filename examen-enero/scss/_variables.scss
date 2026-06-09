@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+
+// colores base 
+$color-bg: #f5f5f5;
+$color-text: #333333;
+$color-featured: #007bff;
+
+
+// tipografia 
+$font-primary: "Roboto", sans-serif;
+$font-secundary: "Arial", sans-serif;
+
+// mapa de colores
+$theme-colors: (
+    "primary": $color-featured,
+    "secundary": #6c757d,
+    "succes": #28a745
+);
+
+//mapa de breakpoints
+$breakpoints :(
+    "sm" : 767px,
+    "md" : 1023px,
+    "lg" : 1024px
+);
+

@@ -1,0 +1,6 @@
+@use "sass:color";
+
+// apartado 5 
+@function adjust-color-weight($color,$porcentaje){
+    @return color.scale($color,$lightness:$porcentaje);
+}

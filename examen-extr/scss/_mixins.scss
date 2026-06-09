@@ -1,0 +1,43 @@
+@use "variables" as *;
+
+// apartado 1
+@mixin caja-flexible($cadena-texto,$espaciado){
+
+    display:flex;
+    align-items: center;
+    justify-content: center;
+   
+    @if $cadena-texto == "" {
+        flex-direction: row;
+    }
+    @else {
+        flex-direction:$cadena-texto;
+    }
+    @if $espaciado == null{
+        padding: 10px;
+    }
+    @else{
+        padding:$espaciado;
+    }
+    
+
+
+}
+
+// apartado 4
+// placeholder
+%texto-mayus {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+
+// apartado 7 
+@mixin responsive($breakpoint-name){
+    @if map-has-key($breakpoints,$breakpoint-name){
+        $value: map-get($breakpoints,$breakpoint-name);
+        @media(max-width: $value){
+            @content;
+        }
+    }
+}

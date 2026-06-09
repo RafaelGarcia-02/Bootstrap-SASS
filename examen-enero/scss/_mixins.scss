@@ -1,0 +1,54 @@
+@use "variables" as *;
+@use "functions" as *;
+
+
+@mixin card-style {
+    border-radius:8px;
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.3);
+    padding: 20px;
+}
+
+//mixin responsividad 
+@mixin respond-to($breakpoint-name){
+    // buscamos en el mapa si existe el nombre que le hemos pasado 
+    @if map-has-key($breakpoints,$breakpoint-name){
+        // si existe guardamos el valor 
+        $value: map-get($breakpoints , $breakpoint-name );
+        @if $breakpoint-name == "sm" {
+            @media (max-width:$value){
+                @content;
+            }
+
+        }
+        @else if $breakpoint-name == "md" {
+            @media (min-width: 768px) and (max-width: $value){
+                @content;
+            }
+        }
+        @else if $breakpoint-name == "lg" {
+            @media (min-width: $value){
+                @content;
+            }
+        }
+    }
+    @else {
+        @error "El breakpoint no existe en el mapa"
+    }
+
+}
+
+//placeholder btn-base
+%btn-base {
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+@each $name, $color in $theme-colors {
+    .btn-#{$name}{
+        @extend %btn-base;
+        background-color: $color;
+        // oscurezemos el raton por encima utilizando la funcion que habiamos creado
+        &:hover{
+            background-color: adjust-color-weight($color , -25%); }
+    }
+}

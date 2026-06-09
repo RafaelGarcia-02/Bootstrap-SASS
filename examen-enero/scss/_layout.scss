@@ -1,0 +1,83 @@
+@use "variables" as *;
+@use "functions" as *;
+@use "mixins" as *;
+
+
+// estilos globales 
+body{
+    background-color: $color-bg;
+    color: $color-text;
+    font-family: $font-primary;
+    margin:0;
+}
+
+header{
+    background-color: map-get($theme-colors, "primary" );
+    color: #ffffff;
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    padding: 15px;
+    font-family:$font-secundary;
+}
+.logo{
+    a{
+        color:#ffffff;
+        text-decoration: none;
+        transition: color 0.3 ease;
+        &:hover{
+            color:adjust-color-weigth(#ffffff,-25%);
+        }
+
+    }
+}
+
+.product-grid{
+    display:grid;
+    gap:20px;
+    padding:40px;
+    max-width: 1200px;
+    margin :0 auto;
+
+    //comportamiento segun el tamaño de la pantalla
+    // pantallas grandes
+    @include respond-to("lg"){
+        grid-templete-columns:repeat(3,1fr);
+    }
+    // pantallas tablets
+    @include respond-to("md"){
+        grid-templete-columns:repeat(2,1fr);
+    }
+    @include respond-to("sm"){
+        grid-templete-columns:repeat(1,1fr);
+    }
+
+
+}
+.product-card{
+    @include card-style;
+    text-align: center;
+    img{
+        max-width: 100%;
+        height: auto;
+    }
+   a{
+        color:#ffffff;
+        text-decoration: none;
+        transition: color 0.3 ease;
+        &:hover{
+            color:adjust-color-weigth(#ffffff,-25%);
+        }
+
+    }
+}
+footer{
+    color:#ffffff;
+    background-color: map-get($theme-colors,"secundary");
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    font-family: $font-secundary;
+
+}
